@@ -12,8 +12,6 @@ public:
 	void AddScore(int score);
 	void AddId(int id);
 
-	void setId(int id);
-
 	std::string GetNome();
 	void PrintNome();
 	int GetScore();

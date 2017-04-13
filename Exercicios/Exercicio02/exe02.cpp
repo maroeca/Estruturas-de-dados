@@ -31,6 +31,7 @@ int main()
 			<<  "> ";
 
 		std::cin >> opcao;
+		system("CLS");
 
 		switch (opcao)
 		{

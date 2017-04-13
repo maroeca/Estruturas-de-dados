@@ -1,5 +1,5 @@
-#include "Registro.h"
-#include "Competidor.h"
+#include "Registro2.h"
+#include "Competidor2.h"
 #include <iostream>
 
 Registro::Registro()
@@ -8,29 +8,34 @@ Registro::Registro()
 	capacidade = 0;
 }
 
+
 Registro::~Registro()
 {
 }
 
-void Registro::AddCompetidor(Competidor* cadastros[])
+void Registro::AddCompetidor(std::vector<Competidor*> cadastros)
 {
+	Competidor* temp = new Competidor();
 	std::string nome;
 	std::cout << "\nDigite o nome do competidor: " << std::endl
 		<< "> ";
 	std::cin >> nome;
-	cadastros[capacidade]->AddNome(nome);
-	cadastros[capacidade]->AddId(capacidade);
+	temp->AddNome(nome);
+	temp->AddId(capacidade);
+	cadastros.push_back(temp);
+	
+	/*cadastros[capacidade]->AddNome(nome);
+	cadastros[capacidade]->AddId(capacidade);*/
 	capacidade++;
 	std::cout << "Nome adicionado com sucesso" << std::endl;
 }
 
-void Registro::SearchCompetitor(Competidor* cadastros[])
+void Registro::SearchCompetitor(std::vector<Competidor*> cadastros)
 {
 	bool flag = false;
 	int id;
 
-	std::cout << "\nDigite o id do competidor: " << std::endl
-		<< "> ";
+	std::cout << "\nDigite o id do competidor: " << std::endl << "> ";
 	std::cin >> id;
 
 	for (int i = 0; i < capacidade && flag == false; i++)
@@ -48,7 +53,7 @@ void Registro::SearchCompetitor(Competidor* cadastros[])
 		std::cout << "Cadastro nao encontrado" << std::endl;
 }
 
-void Registro::ListCompetitors(Competidor* cadastros[])
+void Registro::ListCompetitors(std::vector<Competidor*> cadastros)
 {
 	for (int i = 0; i < capacidade; i++)
 	{
@@ -56,7 +61,7 @@ void Registro::ListCompetitors(Competidor* cadastros[])
 	}
 }
 
-void Registro::DeleteCompetitor(Competidor* cadastros[])
+void Registro::DeleteCompetitor(std::vector<Competidor*> cadastros)
 {
 	int id;
 	bool flag = false;
@@ -69,7 +74,6 @@ void Registro::DeleteCompetitor(Competidor* cadastros[])
 	{
 		if (cadastros[i]->GetId() == id) //vai percorrer todo o resto da lista e preencher o espaco que foi deletado
 		{
-			cadastros[i]->setId(id - 1);
 			GetNext(i, cadastros);
 			id++;
 		}
@@ -78,7 +82,7 @@ void Registro::DeleteCompetitor(Competidor* cadastros[])
 	std::cout << "Competidor deletado!" << std::endl;
 }
 
-void Registro::GetNext(int id, Competidor* cadastros[])
+void Registro::GetNext(int id, std::vector<Competidor*> cadastros)
 {
 	if (id + 1 < capacidade)
 		cadastros[id] = cadastros[id + 1]; //cadastro recebe os dados do proximo da lista
@@ -89,7 +93,7 @@ void Registro::GetNext(int id, Competidor* cadastros[])
 	}
 }
 
-void Registro::AddScore(Competidor* cadastros[])
+void Registro::AddScore(std::vector<Competidor*> cadastros)
 {
 	int id;
 	bool flag = false;

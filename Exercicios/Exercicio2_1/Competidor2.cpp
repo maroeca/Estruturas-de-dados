@@ -1,4 +1,4 @@
-#include "Competidor.h"
+#include "Competidor2.h"
 
 
 
@@ -24,11 +24,6 @@ void Competidor::AddScore(int score)
 }
 
 void Competidor::AddId(int id)
-{
-	this->id = id;
-}
-
-void Competidor::setId(int id)
 {
 	this->id = id;
 }
