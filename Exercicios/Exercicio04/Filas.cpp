@@ -7,10 +7,9 @@
 //Struct da fila
  struct fila{
 	int tamanho;
-	char dado;
+	char fila[MAX];
 	int inicio, fim;
 	//fila *prox;
-
 };
 //Struct com ptr que indicam o inicio e fim da fila
 //typedef struct {
@@ -18,16 +17,51 @@
 //	fila *fim;
 //}fila_enca;
 
+ //adiciona elementos na fila
 int incluirNaFila(struct fila* f, char dado)
 {
-	if (f->tamanho == MAX)
+	if (f->tamanho == MAX) //testa se a fila não está cheia
 	{
 		std::cout << "Fila Cheia!!" << std::endl;
+		return -1;
 	}
+	else
+	{
+		f->fila[f->fim] = dado; //coloca o dado desejado ao final da fila
+		f->fim = (f->fim + 1) % MAX; // muda a posição do fim pra proxima posição
+		f->tamanho++; // adiciona 1 ao tamanho
+	}
+}
+//retira elementos da fila
+int retiraDaFila(struct fila* f, char dado)
+{
+	if (f->tamanho == 0) //testa o tamanho, se for 0 não há elementos
+	{
+		std::cout << "Fila Vazia!!" << std::endl;
+		return -1;
+	}
+	else
+	{
+		std::cout << dado << std::endl << std::endl; //imprime o dado
+		//dado = f->fila[f->inicio]; ? // não entendi isso e tirei, não faz sentido
+		f->inicio = (f->inicio + 1) % MAX; // muda a posição do inicio
+		f->tamanho--; // retira 1 do tamanho
+		return 0;
+	}
+}
+//inicia os elementos da fila
+void iniciaFila(struct fila *f)
+{
+	f->fim = 0;
+	f->inicio = 0;
+	f->tamanho = 0;
 }
 
 int main()
 {
+	struct fila *filaCont;
+
+	iniciaFila(filaCont);
 
 
 	system("PAUSE");
