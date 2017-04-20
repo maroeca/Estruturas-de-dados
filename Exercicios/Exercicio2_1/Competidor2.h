@@ -1,26 +1,23 @@
 #pragma once
-#include<string>
-#include<iostream>
+#include <string>
+#include <iostream>
+using namespace std;
 
 class Competidor
 {
+private:
+	string m_nome;
+	int m_id, m_pontuacao;
 public:
 	Competidor();
 	~Competidor();
 
-	void AddNome(std::string nome);
-	void AddScore(int score);
-	void AddId(int id);
-
 	std::string GetNome();
-	void PrintNome();
-	int GetScore();
+	void SetNome(std::string nome);
+
 	int GetId();
-	std::string name;
+	void SetId(int id);
 
-private:
-	int id,
-		score;
-
+	int GetPontuacao();
+	void SetPontuacao(int pontuacao);
 };
-

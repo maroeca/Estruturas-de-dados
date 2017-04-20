@@ -21,15 +21,9 @@
     <ClCompile Include="Competidor2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Registro2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Competidor2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Registro2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

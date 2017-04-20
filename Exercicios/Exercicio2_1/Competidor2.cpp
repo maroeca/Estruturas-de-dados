@@ -1,49 +1,41 @@
 #include "Competidor2.h"
 
-
-
 Competidor::Competidor()
 {
-	id = 0;
-	score = 0;
+	m_id = 0;
+	m_pontuacao = 0;
 }
-
 
 Competidor::~Competidor()
 {
 }
 
-void Competidor::AddNome(std::string nome)
-{
-	name = nome;
-}
-
-void Competidor::AddScore(int score)
-{
-	this->score = score;
-}
-
-void Competidor::AddId(int id)
-{
-	this->id = id;
-}
-
 std::string Competidor::GetNome()
 {
-	return name;
+	return m_nome;
 }
 
-void Competidor::PrintNome()
+void Competidor::SetNome(std::string nome)
 {
-	std::cout << name << std::endl;
-}
-
-int Competidor::GetScore()
-{
-	return score;
+	m_nome = nome;
 }
 
 int Competidor::GetId()
 {
-	return id;
+	return m_id;
+}
+
+void Competidor::SetId(int id)
+{
+	m_id = id;
+}
+
+int Competidor::GetPontuacao()
+{
+	return m_pontuacao;
+}
+
+void Competidor::SetPontuacao(int pontuacao)
+{
+	m_pontuacao = pontuacao;
 }

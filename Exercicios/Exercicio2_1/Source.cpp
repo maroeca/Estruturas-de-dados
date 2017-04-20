@@ -6,20 +6,12 @@
 
 using namespace std;
 
-//struct Competidor {
-//	string m_nome;
-//	int m_id, m_pontuacao;
-//};
-
 int main() {
 
-	vector<Competidor*> competidores(TAMANHO);
+	vector<Competidor*> competidores;
+	Competidor *aux;
 	int opcao, capacidade = 0, id;
 	string nome;
-
-	for (int i = 0; i < TAMANHO; i++) {
-		competidores[i] = new Competidor();
-	}
 
 	cout << "Bem vindo ao app de dados dos competidores. O que deseja fazer?" << endl;
 
@@ -32,33 +24,36 @@ int main() {
 		cout << "5 - Atualizar pontuacao de um competidor" << endl;
 		cout << "0 - Sair do programa" << endl;
 
-		cout << "Digite o numero correspondente a sua opcao e tecle Enter: ";
+		cout << "Escolha uma opcao e tecle Enter: ";
 		cin >> opcao;
 		cout << endl;
 
+		system("CLS");
+
 		switch (opcao) {
-		case 1:
-			if (capacidade < 10) {
-				cout << "Digite o nome do competidor: ";
-				cin >> nome;
-				//competidores[capacidade]->SetNome(nome);
-				//competidores[capacidade]->SetId(capacidade);
-				//cout << endl;
-				//capacidade++;
-				cout << "Competidor cadastrado com sucesso!" << endl;
-				cout << endl;
-			}
-			else
-				cout << "Numero maximo de cadastros permitidos atingido. Para novos cadastros, exclua um ou mais cadastros existentes." << endl;
+		case 1:  //CADASTRAR COMPETIDOR
+			cout << "Digite o nome do competidor: ";
+			cin >> nome;
+
+			aux = new Competidor();
+			aux->SetNome(nome);
+			aux->SetId(capacidade);
+
+			competidores.push_back(aux);
+
+			cout << endl;
+			capacidade++;
+			cout << "Competidor cadastrado com sucesso!" << endl;
+			cout << endl;
 
 			break;
 
-		case 2:
+		case 2:  //BUSCAR COMPETIDOR
 			cout << "Digite a ID do competidor: ";
 			cin >> id;
 			cout << endl;
 
-			for (int i = 0; i < capacidade; i++) {
+			for (int i = 0; i < competidores.size(); i++) {
 				if (competidores[i]->GetId() == id) {
 					cout << "Usuario encontrado!" << endl;
 					cout << competidores[i]->GetNome() << " - " << competidores[i]->GetPontuacao() << " ponto(s)" << endl;
@@ -68,42 +63,46 @@ int main() {
 
 			break;
 
-		case 3:
+		case 3: //LISTAR COMPETIDORES
 			cout << "Lista de competidores:" << endl;
 			cout << endl;
-			for (int i = 0; i < capacidade; i++) {
-				cout << competidores[i]->GetNome() << " - " << competidores[i]->GetPontuacao() << " ponto(s)" << endl;
+			for (int i = 0; i < competidores.size(); i++) {
+				cout << "ID: " << competidores[i]->GetId() << " - " << competidores[i]->GetNome() << " - " << competidores[i]->GetPontuacao() << " ponto(s)" << endl;
 			}
 			cout << endl;
 
 			break;
 
-		case 4:
+		case 4: //EXCLUIR COMPETIDOR
 			cout << "Digite a ID do competidor que deseja excluir: ";
 			cin >> id;
 
-			for (int i = 0; i < capacidade; i++) {
+			for (int i = 0; i < competidores.size(); i++) {
 				if (competidores[i]->GetId() == id) {
-					if (id + 1 < capacidade)
+					competidores[id]->SetId(id - 1);
+
+					if (id + 1 < competidores.size())
 						competidores[id] = competidores[id + 1];
 					else {
 						competidores[id] = new Competidor();
 						competidores[id]->SetId(5000);
 					}
+
 					id++;
 				}
 			}
+			competidores.pop_back();
 			capacidade--;
 			cout << "Competidor deletado com sucesso!" << endl;
 			cout << endl;
 
 			break;
 
-		case 5:
+		case 5: //ATUALIZAR PONTUAÇÃO
 			cout << "Digite a ID para a qual voce deseja alterar a pontuacao: ";
 			cin >> id;
 
-			for (int i = 0; i < capacidade; i++) {
+			for (int i = 0; i < competidores.size(); i++) {
 				if (competidores[i]->GetId() == id) {
 					int pontuacao;
 					cout << "Competidor encontrado! Digite sua nova pontuacao: ";
@@ -116,7 +115,7 @@ int main() {
 
 			break;
 
-		case 0:
+		case 0: //SAIR DO PROGRAMA
 			opcao = 0;
 			cout << "App encerrado." << endl;
 			cout << " " << endl;
@@ -126,6 +125,7 @@ int main() {
 			cout << "Opcao inexistente. Escolha uma opcao valida." << endl;
 			break;
 		}
+		
 
 	} while (opcao != 0);
 

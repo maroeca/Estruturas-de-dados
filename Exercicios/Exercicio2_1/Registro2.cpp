@@ -38,7 +38,7 @@ void Registro::SearchCompetitor(std::vector<Competidor*> cadastros)
 	std::cout << "\nDigite o id do competidor: " << std::endl << "> ";
 	std::cin >> id;
 
-	for (int i = 0; i < capacidade && flag == false; i++)
+	for (int i = 0; i < cadastros.size() && flag == false; i++)
 	{
 		if (cadastros[i]->GetId() == id)
 		{
@@ -55,7 +55,7 @@ void Registro::SearchCompetitor(std::vector<Competidor*> cadastros)
 
 void Registro::ListCompetitors(std::vector<Competidor*> cadastros)
 {
-	for (int i = 0; i < capacidade; i++)
+	for (int i = 0; i < cadastros.size(); i++)
 	{
 		std::cout << cadastros[i]->GetNome() << " - " << cadastros[i]->GetScore() << std::endl;
 	}
@@ -70,7 +70,7 @@ void Registro::DeleteCompetitor(std::vector<Competidor*> cadastros)
 		<< "> ";
 	std::cin >> id;
 
-	for (int i = 0; i < capacidade; i++)
+	for (int i = 0; i < cadastros.size(); i++)
 	{
 		if (cadastros[i]->GetId() == id) //vai percorrer todo o resto da lista e preencher o espaco que foi deletado
 		{
@@ -84,7 +84,7 @@ void Registro::DeleteCompetitor(std::vector<Competidor*> cadastros)
 
 void Registro::GetNext(int id, std::vector<Competidor*> cadastros)
 {
-	if (id + 1 < capacidade)
+	if (id + 1 < cadastros.size())
 		cadastros[id] = cadastros[id + 1]; //cadastro recebe os dados do proximo da lista
 	else
 	{
@@ -102,7 +102,7 @@ void Registro::AddScore(std::vector<Competidor*> cadastros)
 		<< "> ";
 	std::cin >> id;
 
-	for (int i = 0; i < capacidade && flag == false; i++)
+	for (int i = 0; i < cadastros.size() && flag == false; i++)
 	{
 		if (cadastros[i]->GetId() == id)
 		{
