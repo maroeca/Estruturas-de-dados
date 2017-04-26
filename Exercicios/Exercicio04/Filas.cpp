@@ -4,13 +4,13 @@
 
 using std::string;
 
-#define MAX 3
+#define TAMANHO 3
 
 //Struct da fila
  struct fila{
 	int contEntrada; //controla o tamanho do vetor na entrada de elementos
 	int contSaida; //controle de saida de elemntos
-	string elementos[MAX]; //array dos elementos do tipo string
+	string elementos[TAMANHO]; //array dos elementos do tipo string
 	int inicio; //controle de inicio da fila
 	int	fim; //controle do fim da fila
 	
@@ -19,7 +19,7 @@ using std::string;
  //adiciona elementos na fila
 int incluirNaFila(struct fila* f, string dado)
 {
-	if (f->contEntrada == MAX) //testa se a fila não está cheia
+	if (f->contEntrada == TAMANHO) //testa se a fila não está cheia
 	{
 		std::cout << "Fila Cheia!!" << std::endl;
 		return -1;
@@ -27,7 +27,8 @@ int incluirNaFila(struct fila* f, string dado)
 	else
 	{
 		f->elementos[f->fim] = dado; //coloca o dado desejado ao final da fila
-		f->fim = (f->fim + 1) % MAX; // muda a posição do fim pra proxima posição
+		//f->fim = (f->fim + 1) % TAMANHO; // muda a posição do fim pra proxima posição
+		f->fim++; //muda o fim para proxima posição
 		f->contEntrada++; // adiciona 1 ao tamanho
 		f->contSaida = f->contEntrada; //saida recebe entrada para fazer o controle na retirada
 		std::cout << "Dado incluido!" << std::endl;
@@ -45,7 +46,8 @@ int retiraDaFila(struct fila* f)
 	{
 		//*dado = f->elementos[f->inicio];  // coloca o dado numa variavel
 		std::cout << "Elemento retirado: "<< f->elementos[f->inicio] << std::endl << std::endl; //imprime o dado retirado
-		f->inicio = (f->inicio + 1) % MAX; // muda a posição do inicio
+		//f->inicio = (f->inicio + 1) % TAMANHO; // muda a posição do inicio
+		f->inicio++; //muda inicio para proxima posição
 		f->contSaida--; // controle de saida para saber se fila está vazia
 		return 0;
 	}
