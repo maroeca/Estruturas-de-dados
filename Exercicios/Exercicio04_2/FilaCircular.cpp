@@ -179,7 +179,7 @@ int main()
 		switch (opcao) //faz o switch das opcoes
 		{
 		case 1:
-			std::cout << "Digite o nome que quer incluir? " << std::endl;
+			std::cout << "Digite o dado que quer incluir: " << std::endl;
 			std::cin >> dado; //le o dado a ser incluido
 			incluirNaFila(filaCont, dado);
 
