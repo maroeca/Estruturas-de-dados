@@ -3,19 +3,19 @@
 #include "Competidor.h"
 #include "Registro.h"
 
-#define TAMANHO 3
+#define TAM 3
 
 	
 int main()
 {
-	Competidor* cadastros[TAMANHO];
+	Competidor* cadastros[TAM];
 	//int capacidade = 0;
 	Registro reg;
 	bool flag = true;
 	char confirm;
 	int opcao;
 
-	for (int i = 0; i < TAMANHO; i++)
+	for (int i = 0; i < TAM; i++)
 	{
 		cadastros[i] = new Competidor();
 	}
@@ -37,7 +37,7 @@ int main()
 		switch (opcao)
 		{
 		case 1:
-			if (reg.GetCapacidade() < TAMANHO)
+			if (reg.GetCapacidade() < TAM)
 				reg.AddCompetidor(cadastros);
 			else
 				std::cout << "Nao eh possivel criar mais cadastros" << std::endl;

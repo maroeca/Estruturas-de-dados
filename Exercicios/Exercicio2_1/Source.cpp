@@ -2,7 +2,7 @@
 #include <vector>
 #include "Competidor2.h"
 
-#define TAMANHO 10
+#define TAM 10
 
 using namespace std;
 

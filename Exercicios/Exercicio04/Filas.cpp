@@ -4,13 +4,13 @@
 
 using std::string;
 
-#define TAMANHO 3
+#define TAM 3
 
 //Struct da fila
  struct fila{
 	int contEntrada; //controla o tamanho do vetor na entrada de elementos
 	int contSaida; //controle de saida de elemntos
-	string elementos[TAMANHO]; //array dos elementos do tipo string
+	string elementos[TAM]; //array dos elementos do tipo string
 	int inicio; //controle de inicio da fila
 	int	fim; //controle do fim da fila
 	
@@ -19,7 +19,7 @@ using std::string;
  //adiciona elementos na fila
 int incluirNaFila(struct fila* f, string dado)
 {
-	if (f->contEntrada == TAMANHO) //testa se a fila não está cheia
+	if (f->contEntrada == TAM) //testa se a fila não está cheia
 	{
 		std::cout << "Fila Cheia!!" << std::endl;
 		return -1;

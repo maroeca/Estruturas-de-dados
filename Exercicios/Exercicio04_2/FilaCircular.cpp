@@ -85,19 +85,19 @@
 
 using std::string;
 
-#define TAMANHO 4 //"N"
+#define TAM 4 //"N"
 
 //Struct da fila
 struct fila {
 	
-	string elementos[TAMANHO]; //array dos elementos do tipo string
+	string elementos[TAM]; //array dos elementos do tipo string
 	int inicio; //controle de inicio da fila "p"
 	int	fim; //controle do fim da fila "u"
 };
 
 int incluirNaFila(struct fila* f, string dado)
 {
-	if (f->fim + 1 == f->inicio || ((f->fim +1) % TAMANHO == f->inicio)) //testa se a fila não está cheia
+	if (f->fim + 1 == f->inicio || ((f->fim +1) % TAM == f->inicio)) //testa se a fila não está cheia
 	{
 		std::cout << "Fila Cheia!!" << std::endl;
 		return -1;
@@ -105,7 +105,7 @@ int incluirNaFila(struct fila* f, string dado)
 	else
 	{		
 		f->elementos[f->fim] = dado; //coloca o dado desejado ao final da fila
-		f->fim = (f->fim +1) % TAMANHO; // muda a posição do fim pra proxima posição
+		f->fim = (f->fim +1) % TAM; // muda a posição do fim pra proxima posição
 		std::cout << "Dado incluido!" << std::endl;
 		if (f->inicio == -1)
 			f->inicio = 0;
@@ -123,7 +123,7 @@ int retiraDaFila(struct fila* f)
 	{
 		//*dado = f->elementos[f->inicio];  // coloca o dado numa variavel
 		std::cout << "Elemento retirado: " << f->elementos[f->inicio] << std::endl << std::endl; //imprime o dado retirado
-		f->inicio = (f->inicio + 1) % TAMANHO; // muda a posição do inicio
+		f->inicio = (f->inicio + 1) % TAM; // muda a posição do inicio
 		return 0;
 	}
 }
@@ -144,7 +144,7 @@ void imprimeFila(struct fila *f)
 	}
 	else
 	{
-		while (i <= TAMANHO - 1)
+		while (i <= TAM - 1)
 			std::cout << f->elementos[i++] << std::endl;
 		i = 0;
 		while (i< f->fim)
