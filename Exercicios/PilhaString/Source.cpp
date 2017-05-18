@@ -67,10 +67,16 @@ int main()
 {
 	Stack *pilhaChacter;
 	Stack *pilhaEspaco;
-	std::vector<char> result;	
+	std::vector<char> result;
 
 	int i = 0;
 	char frase[] = "ESTE EXERCICIO E MUITO FACIL ";
+
+	for (int i = 0; i < strlen(frase); i++)
+	{
+		std::cout << frase[i];
+	}
+	std::cout << std::endl;
 
 	pilhaChacter = createStack(strlen(frase)); //inicia as pilhas
 	pilhaEspaco = createStack(strlen(frase));
