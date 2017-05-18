@@ -1,5 +1,7 @@
 #include <iostream>
 #include <time.h>
+#include <vector>
+
 #define TAM 100
 
 void IniciaVetor(int vet[])
@@ -18,6 +20,26 @@ void ImprimeVetor(int vetor[])
 		std::cout << vetor[i] << " ";
 	}
 }
+
+int InsertSort(int vetor[]) {
+	int cont = 0;
+
+	for (int i = 1; i < TAM; i++) {
+		int escolhido = vetor[i];
+		int j = i - 1;
+
+		while ((j >= 0) && (vetor[j] > escolhido)) {
+			vetor[j + 1] = vetor[j];
+			j--;
+			cont++;
+		}
+
+		vetor[j + 1] = escolhido;
+	}
+
+	return cont;
+}
+
 
 int BubbleSort(int v[])
 {
@@ -93,7 +115,13 @@ int main()
 	quick = quickSort(vetor, 0, TAM - 1);
 	ImprimeVetor(vetor);
 	std::cout << std::endl;
-	std::cout << "QuickSort: " << quick << " trocas." << std::endl;
+	std::cout << "QuickSort: " << quick << " trocas." << std::endl << std::endl;
+
+	IniciaVetor(vetor);
+	insert = InsertSort(vetor);
+	ImprimeVetor(vetor);
+	std::cout << std::endl;
+	std::cout << "InsertSort: " << insert << " trocas." << std::endl;
 
 	system("PAUSE");
 	return 0;

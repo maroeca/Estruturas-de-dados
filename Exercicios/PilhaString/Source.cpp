@@ -76,7 +76,6 @@ int main()
 	pilhaEspaco = createStack(strlen(frase));
 
 	pilhaChacter->size = 0;
-	pilhaEspaco->size = 0;
 
 	//passa por todos os elementos da string verificando se é espaço
 	while (i <= strlen(frase))
@@ -90,17 +89,12 @@ int main()
 		//se for, adiciona na pilha de espaço e desempilha numa string
 		else
 		{
-			add(pilhaEspaco, frase[i]);
-			for (int j = 0; j <= pilhaChacter->size+1; j++)
+			add(pilhaChacter, frase[i]);
+			for (int j = 0; j <= pilhaChacter->size; j++)
 			{
 				result.push_back(remove(pilhaChacter));
 			}
-			result.push_back(remove(pilhaEspaco));
-			for (int k = 0; k < result.size(); k++)
-			{
-				std::cout << result[k];
-			}
-			std::cout<< std::endl << std::endl;
+			pilhaChacter->size = 0;
 		}
 		i++;
 	}
