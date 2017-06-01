@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exercicio01", "Exericio01\Exericio01.vcxproj", "{7EBBA4D4-7A4D-411E-BF32-7F1E85086823}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ordenacao", "Ordenacao\Ordenacao.vcxproj", "{D4D482F2-E832-41C2-95B1-6C7F11A253C1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PilhaString", "PilhaString\PilhaString.vcxproj", "{EFD5A95A-EEEE-4204-8AF7-69DBAC082355}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PilhaEquacao", "PilhaEquacao\PilhaEquacao.vcxproj", "{D8D017DD-F372-4B60-A6A2-8651683D5F54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +123,14 @@ Global
 		{EFD5A95A-EEEE-4204-8AF7-69DBAC082355}.Release|x64.Build.0 = Release|x64
 		{EFD5A95A-EEEE-4204-8AF7-69DBAC082355}.Release|x86.ActiveCfg = Release|Win32
 		{EFD5A95A-EEEE-4204-8AF7-69DBAC082355}.Release|x86.Build.0 = Release|Win32
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Debug|x64.ActiveCfg = Debug|x64
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Debug|x64.Build.0 = Debug|x64
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Debug|x86.ActiveCfg = Debug|Win32
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Debug|x86.Build.0 = Debug|Win32
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Release|x64.ActiveCfg = Release|x64
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Release|x64.Build.0 = Release|x64
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Release|x86.ActiveCfg = Release|Win32
+		{D8D017DD-F372-4B60-A6A2-8651683D5F54}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
